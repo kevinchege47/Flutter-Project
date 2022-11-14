@@ -1,6 +1,8 @@
 import 'dart:math';
 
+// ignore_for_file: prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -8,11 +10,19 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('Dashboard'.toUpperCase()),
         backgroundColor: Colors.lightGreen,
       ),
-      body:Image.asset("images/rocket.jpg",height: 300.0,fit: BoxFit.contain,)
+      body: Center(
+        child: IconButton(
+          icon: Icon(FontAwesomeIcons.airbnb),
+          iconSize: 100,
+          color: Colors.lightGreen,
+          splashColor: Colors.deepOrange,
+          onPressed: () {},),
+      ),
     );
   }
 }
