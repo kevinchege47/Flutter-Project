@@ -7,10 +7,26 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        leading: IconButton(icon:Icon(Icons.menu),onPressed: (){}),
+        title: Text("Home"),
+        actions: [
+          IconButton(icon:Icon(Icons.shopping_cart),onPressed: (){}),
+          IconButton(icon:Icon(Icons.search),onPressed: (){}),
+          // IconButton(icon:Icon(Icons.help),onPressed: (){}),
+        ],
+        elevation: 5,
+        centerTitle: true,
+        backgroundColor: Colors.yellow,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.vertical(bottom: Radius.circular(20))
+        ) ,
+      ),
       body: Center(
         child: Directionality(
           textDirection: TextDirection.rtl,
-          child: TextButton.icon(
+          child: ElevatedButton.icon(
             icon: Icon(Icons.add_a_photo_outlined),
             label: Text("Take a Photo"),
             // child: Text("Lets Begin"),
