@@ -9,50 +9,33 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Rows and Columns"),
-        centerTitle: true,
-      ),
       body: Container(
-        child: Column(
+        child: ListView(
+          itemExtent:100.0,
           children: [
-            Row(
-              children: [
-                Expanded(child: Image(image: AssetImage("images/rocket.jpg"))),
-                Expanded(flex:2, child: Image(image: AssetImage("images/rocket.jpg"))),
-                Expanded(child: Image(image: AssetImage("images/rocket.jpg"))),
-                Expanded(flex:4,child: Image(image: AssetImage("images/rocket.jpg"))),
-              ],
+            ListTile(
+              leading: CircleAvatar(
+                backgroundColor: Colors.black,
+                child: Icon(Icons.car_crash_rounded),
+              ),
+              title: Text("Car Rentals"),
+              subtitle: Text("Car Rentals for the week"),
+              trailing: Text("100"),
+              onTap: () {},
+              tileColor: Colors.brown.shade50,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(Icons.star),
-                Icon(Icons.star),
-                Icon(Icons.star_border_outlined),
-                Icon(Icons.star_border_outlined),
-                Icon(Icons.star_border_outlined),
-              ],
+            ListTile(
+              leading: Icon(Icons.people),
+              title: Text("Customers"),
+              subtitle: Text("Total Customers for the week"),
+              trailing: Text("1000"),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Column(
-                  children: [Icon(Icons.phone, size: 35.0), Text("Phone")],
-                ),
-                Column(
-                  children: [Icon(Icons.home, size: 35.0), Text("Home")],
-                ),
-                Column(
-                  children: [Icon(Icons.share, size: 35.0), Text("Share")],
-                ),
-                Column(
-                  children: [
-                    Icon(Icons.add_card_rounded, size: 35.0),
-                    Text("Card")
-                  ],
-                ),
-              ],
+            ListTile(
+              leading: Icon(Icons.monetization_on),
+              title: Text("Money"),
+              subtitle: Text("Money earned for the week"),
+              trailing: Text("USD 3000"),
+              tileColor: Colors.brown.shade50,
             ),
           ],
         ),
