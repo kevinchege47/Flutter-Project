@@ -68,6 +68,90 @@ class Home extends StatelessWidget {
           },
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+        backgroundColor: Colors.amber,
+        foregroundColor: Colors.green,
+        // shape: BeveledRectangleBorder(
+        //   borderRadius: BorderRadius.circular(10.0),
+        //   side: BorderSide(color: Colors.brown,width: 2.0,style:BorderStyle.solid)
+        // ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        color: Colors.black87,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(left: 10.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.home_filled,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    "Home",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ],
+              )
+            ),
+            Padding(
+                padding: EdgeInsets.only(top:10.0,bottom:10.0,left: 10.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.person,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "Profile",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                )
+            ),
+            Padding(
+                padding: EdgeInsets.only(top:10.0,bottom:10.0,left: 10.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.sports_basketball,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "Play",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                )
+            ),
+            Padding(
+                padding: EdgeInsets.only(top:10.0,bottom:10.0,left: 10.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.wallet_sharp,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "Wallet",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                )
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
