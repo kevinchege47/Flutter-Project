@@ -15,7 +15,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.grey.shade800,
       appBar: AppBar(
         title: Text("Navigation Drawer"),
       ),
@@ -54,19 +54,61 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      body: Container(
-        child: ListView.builder(
-          itemCount: products.length,
-          itemBuilder: (context, index) {
-            return ListTile(
-              leading: CircleAvatar(
-                child: Text(products[index][0]),
+      // body: Container(
+      //   child: ListView.builder(
+      //     itemCount: products.length,
+      //     itemBuilder: (context, index) {
+      //       return ListTile(
+      //         leading: CircleAvatar(
+      //           child: Text(products[index][0]),
+      //         ),
+      //         title: Text(products[index]),
+      //         subtitle: Text(productDetails[index]),
+      //         trailing: Text(price[index].toString()),
+      //       );
+      //     },
+      //   ),
+      // ),
+      body: Center(
+        child: Container(
+          padding: EdgeInsets.all(16),
+          constraints: BoxConstraints.expand(width: 330, height: 450),
+          decoration: BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.white24,
+                    offset: Offset(0, 2),
+                    spreadRadius: 5,
+                    blurRadius: 10),
+              ],
+              image: DecorationImage(
+                image: AssetImage("images/rocket.jpg"),
+                fit: BoxFit.cover,
               ),
-              title: Text(products[index]),
-              subtitle: Text(productDetails[index]),
-              trailing: Text(price[index].toString()),
-            );
-          },
+              borderRadius: BorderRadius.all(Radius.circular(10.0))),
+          child: Stack(
+            children: [
+              Text("Editors Choice",
+                  style: TextStyle(color: Colors.black, fontSize: 18)),
+              Positioned(
+                top: 20.0,
+                child: Text("SpaceX",
+                    style: TextStyle(color: Colors.black, fontSize: 18)),
+              ),
+              Positioned(
+                right: 0,
+                bottom: 20,
+                child: Text("To the moon and back",
+                    style: TextStyle(color: Colors.black, fontSize: 16)),
+              ),
+              Positioned(
+                right: 0,
+                bottom: 0,
+                child: Text("Fly with us Today",
+                    style: TextStyle(color: Colors.black, fontSize: 14)),
+              ),
+            ],
+          ),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -89,23 +131,22 @@ class Home extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           children: [
             Padding(
-              padding: EdgeInsets.only(left: 10.0),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.home_filled,
-                    color: Colors.white,
-                  ),
-                  Text(
-                    "Home",
-                    style: TextStyle(color: Colors.white),
-                  ),
-                ],
-              )
-            ),
+                padding: EdgeInsets.only(left: 10.0),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      Icons.home_filled,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "Home",
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ],
+                )),
             Padding(
-                padding: EdgeInsets.only(top:10.0,bottom:10.0,left: 10.0),
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 10.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -118,10 +159,9 @@ class Home extends StatelessWidget {
                       style: TextStyle(color: Colors.white),
                     ),
                   ],
-                )
-            ),
+                )),
             Padding(
-                padding: EdgeInsets.only(top:10.0,bottom:10.0,left: 10.0),
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 10.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -134,10 +174,9 @@ class Home extends StatelessWidget {
                       style: TextStyle(color: Colors.white),
                     ),
                   ],
-                )
-            ),
+                )),
             Padding(
-                padding: EdgeInsets.only(top:10.0,bottom:10.0,left: 10.0),
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 10.0),
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -150,8 +189,7 @@ class Home extends StatelessWidget {
                       style: TextStyle(color: Colors.white),
                     ),
                   ],
-                )
-            ),
+                )),
           ],
         ),
       ),
