@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/listview.dart';
+
 // ignore_for_file: prefer_const_literals_to_create_immutables
 // ignore_for_file: prefer_const_constructors
-class Home extends StatelessWidget {
-  Home({Key? key}) : super(key: key);
+class reusable extends StatelessWidget {
+  reusable({Key? key}) : super(key: key);
   List<String> products = ["Bed", "Sofa", "Chair"];
   List<String> productDetails = [
     "King size Bed",
@@ -15,8 +17,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      backgroundColor: Colors.grey.shade800,
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Navigation Drawer"),
       ),
@@ -55,62 +56,18 @@ class Home extends StatelessWidget {
           ],
         ),
       ),
-      // body: Container(
-      //   child: ListView.builder(
-      //     itemCount: products.length,
-      //     itemBuilder: (context, index) {
-      //       return ListTile(
-      //         leading: CircleAvatar(
-      //           child: Text(products[index][0]),
-      //         ),
-      //         title: Text(products[index]),
-      //         subtitle: Text(productDetails[index]),
-      //         trailing: Text(price[index].toString()),
-      //       );
-      //     },
-      //   ),
-      // ),
-      body: Center(
-        child: Container(
-          padding: EdgeInsets.all(16),
-          constraints: BoxConstraints.expand(width: 330, height: 450),
-          decoration: BoxDecoration(
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.white24,
-                    offset: Offset(0, 2),
-                    spreadRadius: 5,
-                    blurRadius: 10),
-              ],
-              image: DecorationImage(
-                image: AssetImage("images/rocket.jpg"),
-                fit: BoxFit.cover,
-              ),
-              borderRadius: BorderRadius.all(Radius.circular(10.0))),
-          child: Stack(
-            children: [
-              Text("Editors Choice",
-                  style: TextStyle(color: Colors.black, fontSize: 18)),
-              Positioned(
-                top: 20.0,
-                child: Text("SpaceX",
-                    style: TextStyle(color: Colors.black, fontSize: 18)),
-              ),
-              Positioned(
-                right: 0,
-                bottom: 20,
-                child: Text("To the moon and back",
-                    style: TextStyle(color: Colors.black, fontSize: 16)),
-              ),
-              Positioned(
-                right: 0,
-                bottom: 0,
-                child: Text("Fly with us Today",
-                    style: TextStyle(color: Colors.black, fontSize: 14)),
-              ),
-            ],
-          ),
-        ),
+      body: ListView(
+        children: [
+          listTileWidget(title: "Bike Rim", subtitle: "Light Weight"),
+          listTileWidget(
+            title: "Handle Bar",
+            subtitle: "Aluminium",
+            iconColor: Colors.pink,
+            leadingIcon: Icons.add_a_photo_outlined,
+            listTileColor: Colors.amber,
+            trailingIcon: Icons.accessibility_new,
+          )
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
