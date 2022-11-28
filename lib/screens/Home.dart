@@ -15,6 +15,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("Navigation Drawer"),
       ),
@@ -68,18 +69,20 @@ class Home extends StatelessWidget {
           },
         ),
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.add),
         backgroundColor: Colors.amber,
         foregroundColor: Colors.green,
+        child: Icon(Icons.add),
         // shape: BeveledRectangleBorder(
         //   borderRadius: BorderRadius.circular(10.0),
         //   side: BorderSide(color: Colors.brown,width: 2.0,style:BorderStyle.solid)
         // ),
       ),
       bottomNavigationBar: BottomAppBar(
+        notchMargin: 5.0,
+        shape: CircularNotchedRectangle(),
         color: Colors.black87,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
