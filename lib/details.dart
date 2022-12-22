@@ -12,9 +12,15 @@ class Details extends StatefulWidget {
 }
 
 class _MyFormState extends State<Details> {
+  _MyFormState() {
+    _selectedVal = _productSizesList[0];
+  }
+
   var _productname;
   final _productController = TextEditingController();
   bool? _checkbox, _listTileCheckBox = false;
+  final _productSizesList = ["Small", "Medium", "Large", "XLarge"];
+  String? _selectedVal = "";
 
   @override
   void dispose() {
@@ -54,15 +60,15 @@ class _MyFormState extends State<Details> {
                   border: OutlineInputBorder()),
             ),
             SizedBox(height: 20.0),
-            Checkbox(
-                tristate: true,
-                checkColor: Colors.pink,
-                value: _checkbox,
-                onChanged: (val) {
-                  setState(() {
-                    _checkbox = val;
-                  });
-                }),
+            // Checkbox(
+            //     tristate: true,
+            //     checkColor: Colors.pink,
+            //     value: _checkbox,
+            //     onChanged: (val) {
+            //       setState(() {
+            //         _checkbox = val;
+            //       });
+            //     }),
             CheckboxListTile(
                 title: Text("Top Product"),
                 value: _listTileCheckBox,
@@ -70,7 +76,57 @@ class _MyFormState extends State<Details> {
                   setState(() {
                     _listTileCheckBox = val;
                   });
-                },controlAffinity: ListTileControlAffinity.leading),
+                },
+                controlAffinity: ListTileControlAffinity.leading),
+
+            DropdownButton(
+              value: _selectedVal,
+              items: _productSizesList.map((e) {
+                return DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                );
+              }).toList(),
+              onChanged: (val) {
+                setState(
+                  () {
+                    _selectedVal = val as String;
+                  },
+                );
+              },
+            ),
+
+            DropdownButtonFormField(
+              value: _selectedVal,
+              items: _productSizesList.map((e) {
+                return DropdownMenuItem(
+                  child: Text(e),
+                  value: e,
+                );
+              }).toList(),
+              onChanged: (val) {
+                setState(
+                  () {
+                    _selectedVal = val as String;
+                  },
+                );
+              },
+              icon: const Icon(Icons.arrow_drop_down_circle,
+                  color: Colors.deepPurple),
+              decoration: InputDecoration(
+                labelText: "Product Sizes",
+                prefixIcon: Icon(
+                  Icons.accessibility,
+                  color:Colors.deepPurple,
+                ),
+                border: OutlineInputBorder()
+              ),
+            ),
+
+
+
+
+
             buildOutlinedButton(context)
             // Text("Product Name is ${_productController.text}")
           ],
