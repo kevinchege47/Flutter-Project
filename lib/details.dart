@@ -14,24 +14,24 @@ class Details extends StatefulWidget {
 class _MyFormState extends State<Details> {
   var _productname;
   final _productController = TextEditingController();
-
+  bool? _checkbox, _listTileCheckBox = false;
 
   @override
   void dispose() {
     _productController.dispose();
-    super.dispose()
-
+    super.dispose();
   } // @override
   // void initState() {
   //   super.initState();
   //   _productController.addListener(_updateText);
   // }
 
-  void _updateText(){
+  void _updateText() {
     setState(() {
       _productname = _productController.text;
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,6 +54,23 @@ class _MyFormState extends State<Details> {
                   border: OutlineInputBorder()),
             ),
             SizedBox(height: 20.0),
+            Checkbox(
+                tristate: true,
+                checkColor: Colors.pink,
+                value: _checkbox,
+                onChanged: (val) {
+                  setState(() {
+                    _checkbox = val;
+                  });
+                }),
+            CheckboxListTile(
+                title: Text("Top Product"),
+                value: _listTileCheckBox,
+                onChanged: (val) {
+                  setState(() {
+                    _listTileCheckBox = val;
+                  });
+                },controlAffinity: ListTileControlAffinity.leading),
             buildOutlinedButton(context)
             // Text("Product Name is ${_productController.text}")
           ],
@@ -68,7 +85,7 @@ class _MyFormState extends State<Details> {
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) {
-            return Detailstwo(productname:_productController.text);
+            return Detailstwo(productname: _productController.text);
           }),
         );
       },
